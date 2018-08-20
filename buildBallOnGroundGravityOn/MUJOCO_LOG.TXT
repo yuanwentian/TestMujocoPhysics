@@ -1,0 +1,4 @@
+Sun Aug 19 19:23:40 2018
+ERROR: Load model error: Error: sizes must be positive in object '' (id = 0)
+Object name = , id = 0, line = 9, column = 9
+

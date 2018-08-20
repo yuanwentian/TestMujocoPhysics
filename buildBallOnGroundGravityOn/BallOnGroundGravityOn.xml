@@ -1,0 +1,24 @@
+<mujoco>
+<compiler angle="radian" coordinate="local" inertiafromgeom="true"/>
+<default>
+	<joint armature="0" damping="0" limited="false" />
+	<geom conaffinity="1" condim="3" density="100" friction="1 0.5 0.5" margin="0.01" rgba="0.8 0.6 0.4 1" />
+</default>
+   <option gravity="0 0 -9.81" timestep="0.005"/>
+   <worldbody>
+        <geom condim="3" size="1.0 1.0 0.000001" rgba="0 1 0 1" type="plane"/>
+        <light diffuse=".5 .5 .5" pos="0 0 10" dir="0 0 -1"/>    
+        <body name="ball" pos="0 0 2">
+            <joint axis="1 0 0" damping="0.1" name="slideX" pos="0 0 0" type="slide"/>
+            <joint axis="0 1 0" damping="0.1" name="slideY" pos="0 0 0" type="slide"/>
+ 	    <joint axis="0 0 1" damping="0.1" name="slideZ" pos="0 0 0" type="slide"/>
+            <geom mass="10" pos="0 0 0" rgba="1 0 0 1" size="0.15" type="sphere"/>
+	    <camera euler="0 0 0" fovy="40" name="rgb" pos="0 0 2.5"></camera>
+        </body>
+   </worldbody>
+    <actuator>
+        <motor name="actX" gear="2000.0" joint="slideX"/>
+        <motor name="actY" gear="2000.0" joint="slideY"/>
+        <motor name="actZ" gear="2000.0" joint="slideZ"/>
+    </actuator>
+</mujoco>

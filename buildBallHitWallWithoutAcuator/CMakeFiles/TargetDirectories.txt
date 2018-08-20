@@ -1,0 +1,3 @@
+/home/taharabun/Projects/TestMujocoPhysics/buildBallHitWallWithoutAcuator/CMakeFiles/edit_cache.dir
+/home/taharabun/Projects/TestMujocoPhysics/buildBallHitWallWithoutAcuator/CMakeFiles/rebuild_cache.dir
+/home/taharabun/Projects/TestMujocoPhysics/buildBallHitWallWithoutAcuator/CMakeFiles/BallHitWallWithoutActuator.dir

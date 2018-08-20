@@ -2,7 +2,10 @@ cmake_minimum_required(VERSION 3.8)
 set(CMAKE_CXX_STANDARD 17)
 
 option(traj_opt_build_tests "Build all of trajectoryOptimization's own tests." OFF)
-option(traj_opt_build_testActuator "Build testAcuator." ON)
+option(traj_opt_build_testActuator "Build testAcuator." OFF)
+option(traj_opt_build_BallOnGroundGravityOn "Build BallOnGroundGravityOn." OFF)
+option(traj_opt_build_BallHitWallWithoutActuator "Build BallHitWallWithoutActuator." ON)
+
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR) # if building as top-level
 	option(traj_opt_build_samples "Build all of trajectoryOptimization's own samples." OFF)
 else()
@@ -38,6 +41,8 @@ target_link_libraries(trajectoryOptimizationLib INTERFACE
 	Ipopt::Ipopt Rangev3::Rangev3 Mujoco::Mujoco
 )
 
+
+#build executables ////////////////////////////////////////////////////
 if (traj_opt_build_tests)
 	enable_testing()
 	add_subdirectory(test)
@@ -60,6 +65,26 @@ endif()
 if (traj_opt_build_testActuator)
 	add_executable(testActuator src/testActuator.cpp)
 	target_link_libraries(testActuator
+		PUBLIC
+			Ipopt::Ipopt Rangev3::Rangev3 Mujoco::Mujoco
+		PRIVATE
+			trajectoryOptimizationLib
+	)
+endif()
+
+if (traj_opt_build_BallOnGroundGravityOn)
+	add_executable(BallOnGroundGravityOn src/BallOnGroundGravityOn.cpp)
+	target_link_libraries(BallOnGroundGravityOn
+		PUBLIC
+			Ipopt::Ipopt Rangev3::Rangev3 Mujoco::Mujoco
+		PRIVATE
+			trajectoryOptimizationLib
+	)
+endif()
+
+if (traj_opt_build_BallHitWallWithoutActuator)
+	add_executable(BallHitWallWithoutActuator src/BallHitWallWithoutActuator.cpp)
+	target_link_libraries(BallHitWallWithoutActuator
 		PUBLIC
 			Ipopt::Ipopt Rangev3::Rangev3 Mujoco::Mujoco
 		PRIVATE

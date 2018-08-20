@@ -1,0 +1,12 @@
+Mon Aug  6 13:41:56 2018
+ERROR: Load model error: Error: unknown transmission target 'free2' for actuator id = 1
+Object name = , id = 1, line = 13, column = 9
+
+Mon Aug  6 13:43:23 2018
+ERROR: Load model error: Error: more than 6 dofs in body ''
+Object name = , id = 1, line = 6, column = 7
+
+Tue Aug  7 16:00:02 2018
+ERROR: Load model error: Error: mass and inertia of moving bodies must be positive
+Object name = ball, id = 2, line = 8, column = 9
+
