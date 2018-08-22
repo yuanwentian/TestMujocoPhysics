@@ -176,6 +176,8 @@ const char* accelerationFilename = "acceleration.txt";
 std::ofstream accelerationFile(accelerationFilename, std::ios::app);
 const char* contactFilename = "contact.txt";
 std::ofstream contactFile(contactFilename, std::ios::app);
+const char* contactPositionFilename = "contactPosition.txt";
+std::ofstream contactPositionFile(contactPositionFilename, std::ios::app);
 //positionFile.open(positionFilename, std::ios::out | std::ios::trunc);
 
          while ((d->time - simstart < 1.0 / 200.0) && (d->time < 1))
@@ -203,6 +205,7 @@ std::ofstream contactFile(contactFilename, std::ios::app);
 	  std::cout << "number of friction constraints: " << d->nf << std::endl; 
 	  std::cout << "number of constraints: " << d->nefc << std::endl; 
 	  std::cout << "number of detected contacts: " << d->ncon << std::endl; 
+     	  std::cout << "contact postion:" << d->contact->pos[0] << " " <<d->contact->pos[1] << " " <<d->contact->pos[2] << std::endl; 
     
 	//derive contact force
  	mjtNum result[6];
@@ -232,13 +235,18 @@ std::ofstream contactFile(contactFilename, std::ios::app);
 		accelerationFile << d->qacc[i] << " ";
 		}
 		accelerationFile << std::endl;
+           for (int i = 0; i < 3; i++) {  /////should mofify i<2///////////////////
+		contactPositionFile << d->contact->pos[i] << " ";
+		}
+		contactPositionFile << std::endl;
                 mj_step2(m, d);
 
         } 
                 positionFile.close(); 
                 velocityFile.close();  
                 accelerationFile.close();   
- 		contactFile.close();   
+ 		contactFile.close();  
+		contactPositionFile.close();
 
         // get framebuffer viewport
         mjrRect viewport = {0, 0, 0, 0};

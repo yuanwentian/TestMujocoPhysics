@@ -243,8 +243,8 @@ TrajectoryOptimization_BINARY_DIR:STATIC=/home/taharabun/Projects/TestMujocoPhys
 //Value Computed by CMake
 TrajectoryOptimization_SOURCE_DIR:STATIC=/home/taharabun/Projects/TestMujocoPhysics
 
-//Build BallHitWall.
-traj_opt_build_BallHitWall:BOOL=OFF
+//Build BallHitWallWithoutActuator.
+traj_opt_build_BallHitWallWithoutActuator:BOOL=OFF
 
 //Build BallOnGroundGravityOn.
 traj_opt_build_BallOnGroundGravityOn:BOOL=ON

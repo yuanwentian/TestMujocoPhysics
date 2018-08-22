@@ -68,6 +68,21 @@ def pictureContact(data,step,i,name):
 	plt.savefig(name)
 	#plt.show()
 
+def pictureContactPosition(data,step,i,name):
+	i=i-1
+	col = np.array([float(x.split(' ')[i]) for x in data])
+	length = len(col)
+	total = length*step
+	xtic = np.arange(11)*(total/10)
+	x = np.arange(length)*step
+	plt.figure(figsize=(10,10))
+	plt.plot(x,col)
+	plt.xticks(xtic)
+	plt.xlabel('time',fontsize=18)
+	plt.ylabel('contact position',fontsize=18)
+	plt.savefig(name)
+	#plt.show()
+
 if __name__ == "__main__":
 	with open('position.txt','r') as f:
 		data1 = f.readlines()
@@ -77,8 +92,11 @@ if __name__ == "__main__":
 		data3 = f.readlines()
 	with open('contact.txt','r') as f:
 		data4 = f.readlines()
+	with open('contactPosition.txt','r') as f:
+		data5 = f.readlines()
 
 	picturePosition(data1,0.005,3,'position.png')
 	pictureVelocity(data2,0.005,3,'velocity.png')
 	pictureAcceleration(data3,0.005,3,'acceleration.png')
 	pictureContact(data4,0.005,1,'contact.png')
+	pictureContactPosition(data5,0.005,3,'contactPosition.png')

@@ -3,8 +3,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 option(traj_opt_build_tests "Build all of trajectoryOptimization's own tests." OFF)
 option(traj_opt_build_testActuator "Build testAcuator." OFF)
-option(traj_opt_build_BallOnGroundGravityOn "Build BallOnGroundGravityOn." OFF)
-option(traj_opt_build_BallHitWallWithoutActuator "Build BallHitWallWithoutActuator." ON)
+option(traj_opt_build_BallOnGroundGravityOn "Build BallOnGroundGravityOn." ON)
+option(traj_opt_build_BallHitWallWithoutActuator "Build BallHitWallWithoutActuator." OFF)
 
 if(CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR) # if building as top-level
 	option(traj_opt_build_samples "Build all of trajectoryOptimization's own samples." OFF)
